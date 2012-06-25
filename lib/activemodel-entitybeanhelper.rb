@@ -11,13 +11,14 @@ module ActiveModel::EntityBeanHelper
   
   def self.extended(base)
  
-    base.send(:class_variable_set,:@@prop_methods, Array.new)
- 
     #Abort with friendly message if attempt to extend non-Java native class
     unless base.respond_to? 'java_class'
       puts "Warning: Attempt to use JBeanHelper with non-native Java class or superclass"
       return
     end
+    
+    #Add class var to hold list of java props (to reduce cost of reflection later)
+    base.send(:class_variable_set,:@@prop_methods, Array.new)
  
     #Add the necessary includes for the base class to behave as an ActiveModel record
     base.send  :include,ActiveModel::Validations

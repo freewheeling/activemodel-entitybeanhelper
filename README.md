@@ -1,7 +1,7 @@
 activemodel-entitybeanhelper
 ============================
 
-JRuby helper to reflect Java entity beans as rails ActiveModel validation objects
+JRuby helper to reflect Java entity beans as rails ActiveModel validation objects.
 
 This is a proof-of-concept jruby gem that allows for
 rails activemodel classes to be created as sub-classes 
